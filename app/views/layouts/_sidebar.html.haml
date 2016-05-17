@@ -1,0 +1,46 @@
+#sidebar
+  #main-nav
+    #nav-container
+      #profile.clearfix
+        .portrate.hidden-xs
+        .title
+          %h2 Jennifer Doe
+          %h3 Stanford University
+      %ul#navigation
+        %li
+          %a{:href => "index.html#biography"}
+            .icon.icon-user
+            .text About Me
+        %li
+          %a{:href => "index.html#research"}
+            .icon.icon-book
+            .text Research
+        %li
+          %a{:href => "index.html#publications"}
+            .icon.icon-edit
+            .text Publications
+        %li
+          %a{:href => "index.html#teaching"}
+            .icon.icon-time
+            .text Teaching
+        %li
+          %a{:href => "index.html#gallery"}
+            .icon.icon-picture
+            .text Gallery
+        %li
+          %a{:href => "index.html#contact"}
+            .icon.icon-calendar
+            .text Contact & Meet Me
+        %li.external
+          = link_to 'Sign out', destroy_user_session_path, method: :delete
+  .social-icons
+    %ul
+      %li
+        %a{:href => "index.html#"}
+          %i.icon-facebook
+      %li
+        %a{:href => "index.html#"}
+          %i.icon-twitter
+      %li
+        %a{:href => "index.html#"}
+          %i.icon-linkedin

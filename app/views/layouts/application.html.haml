@@ -7,6 +7,25 @@
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body
-    = yield
-    %p.notice= notice
-    %p.alert= alert
+
+  !!!
+%html{:lang => "en"}
+  %head
+    %title Faculty-Responsive university staff personal page
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}
+      %meta{:content => "owwwlab.com", :name => "author"}
+        %meta{:content => "width=device-width, initial-scale=1, maximum-scale=1", :name => "viewport"}
+          %meta{:content => "A theme for faculty profile page", :name => "description"}/
+          %meta{:content => "faculty profile, theme,css, html, jquery, transition, transform, 3d, css3", :name => "keywords"}/
+          %link{:href => "http://owwwlab.com/favicon.ico", :rel => "shortcut icon"}
+            /[if lt IE 9]
+              <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  %body
+    #wrapper
+      -if signed_in?  
+        %a.mobilemenu{:href => "index.html#sidebar"}
+          %i.icon-reorder
+          = render 'layouts/sidebar'
+
+      #main
+        = yield
