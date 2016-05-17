@@ -1,3 +1,8 @@
+#content{
+  margin: 0 auto;
+  width: 20%;
+}
+
 .style-container{
     position: fixed;
     right:-205px;

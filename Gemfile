@@ -10,6 +10,7 @@ gem 'haml'
 gem "haml-rails", "~> 0.9"
 gem 'devise'
 gem 'html2haml'
+gem 'carrierwave'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'

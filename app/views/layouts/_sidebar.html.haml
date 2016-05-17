@@ -32,7 +32,9 @@
             .icon.icon-calendar
             .text Contact & Meet Me
         %li.external
-          = link_to 'Sign out', destroy_user_session_path, method: :delete
+          = link_to destroy_user_session_path, method: :delete do
+            .icon.icon-user
+            .text Sign Out
   .social-icons
     %ul
       %li
