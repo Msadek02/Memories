@@ -2,35 +2,21 @@
   #main-nav
     #nav-container
       #profile.clearfix
-        .portrate.hidden-xs
+        .circular
+          = image_tag @profile.image_url, size: "125x125"
         .title
-          %h2 Jennifer Doe
-          %h3 Stanford University
       %ul#navigation
         %li
-          %a{:href => "index.html#biography"}
-            .icon.icon-user
-            .text About Me
-        %li
-          %a{:href => "index.html#research"}
-            .icon.icon-book
-            .text Research
-        %li
-          %a{:href => "index.html#publications"}
-            .icon.icon-edit
-            .text Publications
-        %li
-          %a{:href => "index.html#teaching"}
-            .icon.icon-time
-            .text Teaching
-        %li
-          %a{:href => "index.html#gallery"}
-            .icon.icon-picture
-            .text Gallery
-        %li
-          %a{:href => "index.html#contact"}
-            .icon.icon-calendar
-            .text Contact & Meet Me
+        - if @profile.persisted?
+          %li.external
+            = link_to edit_profile_path(@profile) do
+              .icon.icon-book
+              .text Edit Profile
+        -else
+          %li.external
+            =link_to new_profile_path do
+              .icon.icon-book
+              .text New Profile
         %li.external
           = link_to destroy_user_session_path, method: :delete do
             .icon.icon-user

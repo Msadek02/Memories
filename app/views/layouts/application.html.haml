@@ -25,7 +25,8 @@
       -if signed_in?  
         %a.mobilemenu{:href => "index.html#sidebar"}
           %i.icon-reorder
-          = render 'layouts/sidebar'
+    - if signed_in?       
+      = render 'layouts/sidebar'
 
-      #main
-        = yield
+    #main
+      = yield

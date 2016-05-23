@@ -3,6 +3,12 @@
   width: 20%;
 }
 
+.head {
+    background-image: url(../images/personal.jpg); 
+    width: 100%; 
+    height: auto;
+}
+
 .style-container{
     position: fixed;
     right:-205px;

@@ -1,19 +1,19 @@
-#biography.page.home{"data-pos" => "home"}
+#biography.page.home
   .pageheader
     .headercontent
       .section-container
-        .row
-          .col-sm-2.visible-sm
-          .col-sm-8.col-md-5
-            .biothumb
-              %img.img-responsive{:alt => "image", :src => "images#gallery"}
+        - if @profile
+          .row
+            .col-sm-2.visible-sm
+            .col-sm-8.col-md-5
+              .biothumb
+                = image_tag @profile.image.url, class: 'img-responsive'
                 .overlay
-                  %h1 
                   %ul.list-unstyled
-                    = @profile.first_name
-                    = @profile.last_name
-          .clearfix.visible-sm.visible-xs
-          .col-sm-12.col-md-7
-          %h3.title Bio
-          %ul.list-unstyled
-            = @profile.bio
+                    %li= @profile.full_name
+                    %li= @profile.company
+
+            .clearfix.visible-sm.visible-xs
+            .col-sm-12.col-md-7
+              %h3.title Bio
+              %p= @profile.bio
