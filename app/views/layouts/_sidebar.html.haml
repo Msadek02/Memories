@@ -3,24 +3,34 @@
     #nav-container
       #profile.clearfix
         .circular
-          = image_tag @profile.image_url, size: "125x125"
+          - if @profile
+            = image_tag @profile.image_url, size: "125x125"
         .title
       %ul#navigation
         %li
-        - if @profile.persisted?
+        - if @profile and @profile.persisted?
           %li.external
             = link_to edit_profile_path(@profile) do
               .icon.icon-book
               .text Edit Profile
         -else
-          %li.external
-            =link_to new_profile_path do
-              .icon.icon-book
-              .text New Profile
+        %li.external
+          = link_to new_friendship_path do
+            .icon.icon-paper-clip
+            .text Add friend        
+        %li.external
+          =link_to new_profile_path do
+            .icon.icon-book
+            .text New Profile
+        %li.external
+          =link_to root_path do
+            .icon.icon-repeat
+            .text Memories
         %li.external
           = link_to destroy_user_session_path, method: :delete do
             .icon.icon-user
-            .text Sign Out
+            .text Sign Out            
+
   .social-icons
     %ul
       %li

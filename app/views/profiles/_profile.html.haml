@@ -1,3 +1,6 @@
+%link{:href => "/path/to/leaflet.css", :rel => "stylesheet"}/
+%script{:src => "/path/to/leaflet.js"}
+    
 #biography.page.home
   .pageheader
     .headercontent
@@ -17,3 +20,16 @@
             .col-sm-12.col-md-7
               %h3.title Bio
               %p= @profile.bio
+        / Button or a Link named "Send Message"
+        / Clicking the "Send Message" button will show the form
+        / This is done with jquery .click event show and hide
+        / Form that will have textarea and a send button (Make sure its hidden use the class .hide)
+        / submitting the form will save a message to the Database that will be between you and (your friend @user)
+        / then redirect to this page with the message displayed
+
+    #nav-container
+      #profile.clearfix
+        .circular
+          - @user.friends.each do |friend|
+            = link_to profile_path(friend.profile) do
+              = image_tag friend.profile.image_url, size: "125x125"

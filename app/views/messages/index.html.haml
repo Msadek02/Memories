@@ -1,0 +1,5 @@
+- @messages.each do |message|
+  .col-md-10.col-md-offset-1
+    .message
+      %h2.message-title= message.title
+      = link_to "Join Convo", message, class: "btn-custom"

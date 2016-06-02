@@ -1,0 +1,17 @@
+.col-md-10.col-md-offset-1
+  .message-show
+    %h2= @message.title
+    %p.message-posted-by
+      = time_ago_in_words(@message.created_at)
+      ago
+    %p.message-desc= @message.description
+    %h3.comment-section-header Comments:
+    %p= render  @message.comments
+    %h3.reply-to-msg Join Discussion:
+    = render 'comments/form'
+    .links.btn-group
+      = link_to "Back", root_path, class: "btn btn-default"
+      - if user_signed_in?
+        - if @message.user_id == current_user.id
+          = link_to "Fix", edit_message_path(@message), class: "btn btn-primary"
+          = link_to "Delete", message_path(@message), method: :delete, data: { confirm: "Are you sure ?"}, class: "btn btn-danger"

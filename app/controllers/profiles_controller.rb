@@ -3,14 +3,17 @@ class ProfilesController < ApplicationController
 
   def index
     @profile = Profile.find_by(user_id: current_user.id)
+    @user = current_user
   end
 
   def show
     @profile = Profile.find(params[:id])
+    @user = @profile.user
   end
 
   def create
     @profile = current_user.profile ? current_user.profile : current_user.build_profile
+
 
     @profile.assign_attributes(profile_params)
     if @profile.save
